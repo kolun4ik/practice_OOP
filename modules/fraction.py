@@ -10,18 +10,23 @@ class Fraction:
         self.den = bottom // self._gcd(top, bottom)
 
     def __str__(self):
-        if self.num > self.den:
-            integer = self.num // self.den
-            remain = self.num % self.den
+        symbol = ''
+        if self.num < 0:
+            symbol = '-'
+        abs_num = abs(self.num)
+        if abs_num > self.den:
+            integer = abs_num // self.den
+            remain = abs_num % self.den
             if remain:
-                return str(integer) + '(' + str(remain) + '/' + str(self.den) + ')'
+                return symbol + str(integer) + '(' + str(remain) + '/' + str(self.den) + ')'
             else:
-                return str(integer)
-
-        elif self.num == self.den:
-            return '1'
+                return symbol + str(integer)
+        elif abs_num == self.den:
+            return symbol + '1'
+        elif self.num == 0:
+            return '0'
         else:
-            return str(self.num) + '/' + str(self.den)
+            return symbol + str(abs_num) + '/' + str(self.den)
 
     def _gcd(self, m, n):
         """Наименьший общий делитель: наименьшее число,
@@ -33,3 +38,21 @@ class Fraction:
             m = tmpn
             n = tmpm % tmpn
         return n
+
+    def getNum(self):
+        return str(self.num)
+
+    def getDen(self):
+        return str(self.den)
+
+    def __add__(self, other):
+        """Сложение дробей"""
+        num = self.num * other.den + other.num * self.den
+        den = self.den * other.den
+        return Fraction(num, den)
+
+    def __sub__(self, other):
+        """Вычитание дробей"""
+        num = self.num * other.den - self.den * other.num
+        den = self.den * other.den
+        return Fraction(num, den)
