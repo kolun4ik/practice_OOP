@@ -56,3 +56,16 @@ class Fraction:
         num = self.num * other.den - self.den * other.num
         den = self.den * other.den
         return Fraction(num, den)
+
+    def __eq__(self, other):
+        """Равество дробей"""
+        if self.num == other.num and self.den == other.den:
+            return True
+        else:
+            return False
+        
+    def __mul__(self, other):
+        """Перемножение дробей"""
+        num = self.num * other.num
+        den = self.den * other.den
+        return Fraction(num, den)
