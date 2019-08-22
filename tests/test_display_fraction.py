@@ -56,6 +56,21 @@ class FractionTests(unittest.TestCase):
         """тест: getDen возвращает числитель"""
         self.assertEqual(self.A.getDen(), '4')
 
+    def test_display_error_type_in_input_not_integer(self):
+        """тест: возбуждаем исключение, если введены не целые числа"""
+        with self.assertRaises(TypeError):
+            Fraction(2.3, 3)
+
+    def test_display_if_den_negative(self):
+        """тест: если по ошибке введи отрицательный знаменатель"""
+        F = Fraction(3, -4)
+        self.assertEqual(F.__str__(), '3/4')
+
+    def test_display_if_num_and_den_nedative(self):
+        """тест: учитываем знак только в числителе"""
+        F = Fraction(-3,-4)
+        self.assertEqual(F.__str__(), '-3/4')
+
 
 if "__name__" == "__main__":
     unittest.main()

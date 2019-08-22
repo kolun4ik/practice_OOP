@@ -6,8 +6,12 @@ class Fraction:
     """Базовый класс Fraction - дробь"""
 
     def __init__(self, top, bottom):
-        self.num = top // self._gcd(top, bottom)
-        self.den = bottom // self._gcd(top, bottom)
+        abs_bottom = abs(bottom)
+        if isinstance(top, int) and isinstance(abs_bottom, int):
+            self.num = top // self._gcd(top, abs_bottom)
+            self.den = abs_bottom // self._gcd(top, abs_bottom)
+        else:
+            raise TypeError('Числитель и знаменатель должны быть целыми числами')
 
     def __str__(self):
         symbol = ''
