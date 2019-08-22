@@ -63,9 +63,40 @@ class Fraction:
             return True
         else:
             return False
+
+    def __ne__(self, other):
+        return not self.__eq__(other)
         
     def __mul__(self, other):
         """Перемножение дробей"""
         num = self.num * other.num
         den = self.den * other.den
         return Fraction(num, den)
+
+    def __truediv__(self, other):
+        """Деление дробей"""
+        num = self.num * other.den
+        den = self.den * other.num
+        return Fraction(num, den)
+
+    def __gt__(self, other):
+        gcd = self._gcd(self.den, other.den)
+        result = self.num * gcd - other.num * gcd
+        if result > 0:
+            return True
+        else:
+            return False
+
+    def __ge__(self, other):
+        gcd = self._gcd(self.den, other.den)
+        result = self.num * gcd - other.num * gcd
+        if result >= 0:
+            return True
+        else:
+            return False
+
+    def __lt__(self, other):
+        return not  self.__gt__(other)
+
+    def __le__(self, other):
+        return not self.__ge__(other)
