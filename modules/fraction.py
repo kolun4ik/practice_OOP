@@ -32,6 +32,9 @@ class Fraction:
         else:
             return symbol + str(abs_num) + '/' + str(self.den)
 
+    def __repr__(self):
+        return 'Дробь: {}/{}'.format(self.num, self.den)
+
     def _gcd(self, m, n):
         """Наименьший общий делитель: наименьшее число,
         которое делится на каждый из знаменателей"""
@@ -50,10 +53,17 @@ class Fraction:
         return str(self.den)
 
     def __add__(self, other):
-        """Сложение дробей"""
+        if isinstance(other, int):
+            other = Fraction(other, 1)
         num = self.num * other.den + other.num * self.den
         den = self.den * other.den
         return Fraction(num, den)
+
+    def __radd__(self, other):
+        return self.__add__(other)
+
+    def __iadd__(self, other):
+        return self.__add__(other)
 
     def __sub__(self, other):
         """Вычитание дробей"""

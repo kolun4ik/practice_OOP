@@ -15,20 +15,20 @@ class FractionTests(unittest.TestCase):
         self.assertEqual(self.A.den, 4)
 
     def test_display_fraction(self):
-        """тест: представление дроби"""
+        """тест: представление дроби при вызове str(), print()"""
         self.assertEqual(self.A.__str__() , '3/4')
 
-    def test_display_correct_fraction(self):
+    def test_print_correct_fraction(self):
         """тест: печатает правильную дробь"""
         F = Fraction(7,3)
         self.assertEqual(F.__str__(), '2(1/3)')
 
-    def test_display_negative_correct_fraction(self):
+    def test_print_negative_correct_fraction(self):
         """тест: печатает отрицательную правильную дробь"""
         F = Fraction(-3, 5)
         self.assertEqual(F.__str__(), '-3/5')
 
-    def test_display_negative_incorrect_fraction(self):
+    def test_print_negative_incorrect_fraction(self):
         """тест: показывает отрицательную не правильную дробь"""
         F = Fraction(-9, 5)
         self.assertEqual(F.__str__(), '-1(4/5)')
@@ -70,6 +70,10 @@ class FractionTests(unittest.TestCase):
         """тест: учитываем знак только в числителе"""
         F = Fraction(-3,-4)
         self.assertEqual(F.__str__(), '-3/4')
+
+    def test_display_repr_method(self):
+        """тест: отображаем дробь при вызове repr()"""
+        self.assertEqual(repr(self.A), 'Дробь: 3/4')
 
 
 if "__name__" == "__main__":

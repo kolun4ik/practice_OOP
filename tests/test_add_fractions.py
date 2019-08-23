@@ -31,6 +31,11 @@ class FractionsAddMethodTests(unittest.TestCase):
         self.assertEqual(F4.__str__(), '0')
 
 
+    def test_add_fraction_with_int(self):
+        """тест: сложим дробь с целым числом"""
+        F = self.A + 2
+        self.assertEqual(F.__str__(), '2(2/3)')
+
 
 if "__name__" == "__main__":
     unittest.main()
