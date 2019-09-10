@@ -29,5 +29,5 @@ class FractionsMulMethodTests(unittest.TestCase):
         self.assertEqual(F.__str__(), '1(1/3)')
 
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     unittest.main()

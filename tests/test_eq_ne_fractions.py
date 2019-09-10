@@ -56,5 +56,5 @@ class FractionsNotEqualMethodTests(unittest.TestCase):
         F1 = Fraction(-2,3)
         self.assertFalse(F != F1)
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     unittest.main()

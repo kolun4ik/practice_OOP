@@ -76,5 +76,5 @@ class FractionTests(unittest.TestCase):
         self.assertEqual(repr(self.A), 'Дробь: 3/4')
 
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     unittest.main()

@@ -22,5 +22,5 @@ class FractionsTrueDyvMethodTests(unittest.TestCase):
         F = F1 / F2
         self.assertEqual(F.__str__(), '7/8')
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     unittest.main()
