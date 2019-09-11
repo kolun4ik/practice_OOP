@@ -1,6 +1,7 @@
 import sys
 from modules.games import *
 
+
 def main():
     hero = Charaster(1, 100)
 

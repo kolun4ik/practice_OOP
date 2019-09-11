@@ -17,10 +17,11 @@ class FractionsTrueDyvMethodTests(unittest.TestCase):
 
     def test_true_div_two_incorect_fraction(self):
         """тест: делим не правильные дроби"""
-        F1 = Fraction(14,8)
+        F1 = Fraction(14, 8)
         F2 = Fraction(2, 1)
         F = F1 / F2
         self.assertEqual(F.__str__(), '7/8')
+
 
 if __name__ == "__main__":
     unittest.main()

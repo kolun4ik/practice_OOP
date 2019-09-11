@@ -14,17 +14,17 @@ class FractionsMulMethodTests(unittest.TestCase):
         """тест: умножение дробей"""
         F = self.A * self.B
         self.assertEqual(F.__str__(), '4/9')
-        
+
     def test_mul_incorect_fraction(self):
         """тест: умножаем неправильные дроби"""
-        F1 = Fraction(4,5)
-        F2 = Fraction(-4,5)
+        F1 = Fraction(4, 5)
+        F2 = Fraction(-4, 5)
         F = F1 * F2
         self.assertEqual(F.__str__(), '-16/25')
 
     def test_mul_correct_and_incorect_fraction(self):
         """тест: умножаем правильную дробь на неправильную"""
-        B = Fraction(2,1)
+        B = Fraction(2, 1)
         F = self.A * B
         self.assertEqual(F.__str__(), '1(1/3)')
 

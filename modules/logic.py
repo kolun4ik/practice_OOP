@@ -1,5 +1,6 @@
 # Реализуем логические элементы
 
+
 class LogicGate:
     """Простой логический эелемент: здесь важно знать
     наименование и то, что получаем на выходе (output)"""
@@ -17,6 +18,7 @@ class LogicGate:
 
 # разделим логические элементы, основываясь на кол-ве их входных линий
 
+
 class BinaryGate(LogicGate):
     """Элемент с двумя входами (AND, OR)"""
     def __init__(self, label):
@@ -25,22 +27,26 @@ class BinaryGate(LogicGate):
         self.pinB = None
 
     def getPinA(self):
-        if self.pinA == None:
-            return int(input('Enter pin A input for gate ' + self.getLabel() + '-->'))
+        if self.pinA is None:
+            return int(
+                input('Enter pin A input for gate ' + self.getLabel() + '-->')
+            )
         else:
             return self.pinA.getFrom().getOutput()
 
     def getPinB(self):
-        if self.pinB == None:
-            return int(input('Enter pin B input for gate ' + self.getLabel() + '-->'))
+        if self.pinB is None:
+            return int(
+                input('Enter pin B input for gate ' + self.getLabel() + '-->')
+            )
         else:
             return self.pinB.getFrom().getOutput()
 
     def setNextPin(self, source):
-        if self.pinA == None:
+        if self.pinA is None:
             self.pinA = source
         else:
-            if self.pinB == None:
+            if self.pinB is None:
                 self.pinB = source
             else:
                 raise RuntimeError('Error: no empty pins')
@@ -53,13 +59,15 @@ class UnaryGate(LogicGate):
         self.pin = None
 
     def getPin(self):
-        if self.pin == None:
-            return int(input('Enter Pin  input for gate ' + self.getLabel() + ' -->'))
+        if self.pin is None:
+            return int(
+                input('Enter Pin  input for gate ' + self.getLabel() + ' -->')
+            )
         else:
             return self.pin.getFrom().getOutput()
 
     def setNextPin(self, source):
-        if self.pin == None:
+        if self.pin is None:
             self.pin = source
         else:
             print('Cannot connect: NO EMPTY PIN on this gate')
@@ -79,9 +87,10 @@ class AndGate(BinaryGate):
         else:
             return 0
 
+
 class OrGate(BinaryGate):
     """Элемент OR"""
-    def __init__(self,label):
+    def __init__(self, label):
         super(OrGate, self).__init__(label)
 
     def performGateLogic(self):
@@ -93,6 +102,7 @@ class OrGate(BinaryGate):
         else:
             return 0
 
+
 class NotGate(OrGate):
     """Элемент NOT"""
 
@@ -101,6 +111,7 @@ class NotGate(OrGate):
             return 0
         else:
             return 1
+
 
 class NorGate(BinaryGate):
     """Элемент Nor"""

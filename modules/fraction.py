@@ -11,7 +11,7 @@ class Fraction:
             self.num = top // self._gcd(top, abs_bottom)
             self.den = abs_bottom // self._gcd(top, abs_bottom)
         else:
-            raise TypeError('Числитель и знаменатель должны быть целыми числами')
+            raise TypeError('Числитель и знаменатель должны быть целыми чис-ми')
 
     def __str__(self):
         symbol = ''
@@ -22,7 +22,8 @@ class Fraction:
             integer = abs_num // self.den
             remain = abs_num % self.den
             if remain:
-                return symbol + str(integer) + '(' + str(remain) + '/' + str(self.den) + ')'
+                return symbol + str(integer) + \
+                       '(' + str(remain) + '/' + str(self.den) + ')'
             else:
                 return symbol + str(integer)
         elif abs_num == self.den:
@@ -80,7 +81,7 @@ class Fraction:
 
     def __ne__(self, other):
         return not self.__eq__(other)
-        
+
     def __mul__(self, other):
         """Перемножение дробей"""
         num = self.num * other.num
@@ -110,7 +111,7 @@ class Fraction:
             return False
 
     def __lt__(self, other):
-        return not  self.__gt__(other)
+        return not self.__gt__(other)
 
     def __le__(self, other):
         return not self.__ge__(other)

@@ -30,7 +30,6 @@ class FractionsAddMethodTests(unittest.TestCase):
         F4 = self.A + self.E
         self.assertEqual(F4.__str__(), '0')
 
-
     def test_add_fraction_with_int(self):
         """тест: сложим дробь с целым числом"""
         F = self.A + 2

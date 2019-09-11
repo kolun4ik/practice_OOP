@@ -40,7 +40,5 @@ class FractionsLeMethodTests(unittest.TestCase):
         self.assertFalse(self.B < self.A)
 
 
-
-
 if __name__ == "__main__":
     unittest.main()

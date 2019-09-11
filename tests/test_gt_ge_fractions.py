@@ -40,7 +40,5 @@ class FractionsGeMethodTests(unittest.TestCase):
         self.assertFalse(self.B.__ge__(self.A))
 
 
-
-
 if __name__ == "__main__":
     unittest.main()

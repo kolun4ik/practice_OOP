@@ -25,8 +25,8 @@ class FractionsEqualMethodTests(unittest.TestCase):
         self.assertFalse(self.A == F)
 
     def test_equals_two_negative_fraction(self):
-        F = Fraction(-2,3)
-        F1 = Fraction(-2,3)
+        F = Fraction(-2, 3)
+        F1 = Fraction(-2, 3)
         self.assertTrue(F == F1)
 
 
@@ -52,9 +52,10 @@ class FractionsNotEqualMethodTests(unittest.TestCase):
         self.assertTrue(self.A != F)
 
     def test_equals_two_negative_fraction(self):
-        F = Fraction(-2,3)
-        F1 = Fraction(-2,3)
+        F = Fraction(-2, 3)
+        F1 = Fraction(-2, 3)
         self.assertFalse(F != F1)
+
 
 if __name__ == "__main__":
     unittest.main()

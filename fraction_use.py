@@ -5,7 +5,7 @@ def main():
     A = Fraction(2, 3)
     B = Fraction(4, 7)
 
-    print('Дано: ', repr(A), ' и ',repr(B), )
+    print('Дано: ', repr(A), ' и ', repr(B))
     print('Сумма дробей: ', A + B)
     print('Разница: ', A - B)
     print('Умножение: ', A * B)
