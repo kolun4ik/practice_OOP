@@ -11,7 +11,9 @@ class Fraction:
             self.num = top // self._gcd(top, abs_bottom)
             self.den = abs_bottom // self._gcd(top, abs_bottom)
         else:
-            raise TypeError('Числитель и знаменатель должны быть целыми чис-ми')
+            raise TypeError(
+                'Числитель и знаменатель должны быть целыми числами'
+            )
 
     def __str__(self):
         symbol = ''
