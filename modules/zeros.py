@@ -13,8 +13,12 @@ def zeros(n):
 
 
 if __name__ == "__main__":
-    start = time.perf_counter()
-    z = zeros(30)
-    end = time.perf_counter()
+    n = 50
+    t = 0
+    for i in range(n):
+        start = time.perf_counter()
+        z = zeros(30)
+        end = time.perf_counter()
+        t += end - start
     print('У факториала({}) -  {} нулей в конце!'.format(30, z))
-    print('Время выполнения = ', end - start)
+    print('Среднее ремя выполнения = ', t / n)
