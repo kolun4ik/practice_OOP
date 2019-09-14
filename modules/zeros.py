@@ -1,3 +1,5 @@
+import time
+
 def zeros(n):
     """calculate the number of trailing zeros
     in a factorial of a given number"""
@@ -11,4 +13,8 @@ def zeros(n):
 
 
 if __name__ == "__main__":
-    print('У факториала({}) -  {} нулей в конце!'.format(30, zeros(30)))
+    start = time.perf_counter()
+    z = zeros(30)
+    end = time.perf_counter()
+    print('У факториала({}) -  {} нулей в конце!'.format(30, z))
+    print('Время выполнения = ', end - start)
