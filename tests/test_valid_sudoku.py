@@ -1,5 +1,6 @@
 import unittest
-from modules.sudoku_tester import validSolution
+from modules.sudoku_tester import validSolution, blockBreaker
+from unittest import skip
 
 
 M1 = [
@@ -12,7 +13,7 @@ M1 = [
   [9, 6, 1, 5, 3, 7, 2, 8, 4],
   [2, 8, 7, 4, 1, 9, 6, 3, 5],
   [3, 4, 5, 2, 8, 6, 1, 7, 9]
-] # -> True
+]  # -> True
 
 
 M2 = [
@@ -25,7 +26,19 @@ M2 = [
   [9, 0, 1, 5, 3, 7, 2, 1, 4],
   [2, 8, 7, 4, 1, 9, 6, 3, 5],
   [3, 0, 0, 4, 8, 1, 1, 7, 9]
-] # -> False
+]  # -> False
+
+M3 = [
+    [1, 1, 1, 2, 2, 2, 3, 3, 3],
+    [1, 1, 1, 2, 2, 2, 3, 3, 3],
+    [1, 1, 1, 2, 2, 2, 3, 3, 3],
+    [4, 4, 4, 5, 5, 5, 6, 6, 6],
+    [4, 4, 4, 5, 5, 5, 6, 6, 6],
+    [4, 4, 4, 5, 5, 5, 6, 6, 6],
+    [7, 7, 7, 8, 8, 8, 9, 9, 9],
+    [7, 7, 7, 8, 8, 8, 9, 9, 9],
+    [7, 7, 7, 8, 8, 8, 9, 9, 9]
+]  # -> False, for check blockBreaker
 
 
 class TestSudokuValidSolutions(unittest.TestCase):
@@ -41,8 +54,26 @@ class TestSudokuValidSolutions(unittest.TestCase):
 
     def test_bed_dataset(self):
         """test: dataset is bad previously"""
-        self.assertFalse(validSolution(M2))
+        # self.assertFalse(validSolution(M2))
 
+
+class TestBlockBreakersFunction(unittest.TestCase):
+    """Tests breakers block function"""
+
+    def test_ideal_data(self):
+        self.assertEqual(
+            blockBreaker(M3),
+            [
+                [1, 1, 1, 1, 1, 1, 1, 1, 1],
+                [2, 2, 2, 2, 2, 2, 2, 2, 2],
+                [3, 3, 3, 3, 3, 3, 3, 3, 3],
+                [4, 4, 4, 4, 4, 4, 4, 4, 4],
+                [5, 5, 5, 5, 5, 5, 5, 5, 5],
+                [6, 6, 6, 6, 6, 6, 6, 6, 6],
+                [7, 7, 7, 7, 7, 7, 7, 7, 7],
+                [8, 8, 8, 8, 8, 8, 8, 8, 8],
+                [9, 9, 9, 9, 9, 9, 9, 9, 9]
+            ])
 
 
 if __name__ == '__main__':
