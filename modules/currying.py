@@ -1,5 +1,7 @@
 from inspect import signature
 from functools import partial
+
+
 def curry(fn):
     def inner(arg):
         if len(signature(fn).parameters) == 1:

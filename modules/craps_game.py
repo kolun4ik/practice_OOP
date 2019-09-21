@@ -1,12 +1,13 @@
 # Game of dice
 import random
 
+
 class Dice(object):
     def __init__(self):
         self.faces = None
 
     def roll(self):
-        self.faces = (random.randint(1,6), random.randint(1,6))
+        self.faces = (random.randint(1, 6), random.randint(1, 6))
 
     def total(self):
         return sum(self.faces)

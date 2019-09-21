@@ -28,6 +28,6 @@ class TestFirstNonRepeatingLetter(unittest.TestCase):
         """test: chould returns 'w' for inputs 'hello world, eh?' """
         self.assertEqual(first_non_repeating_latter('hello world, eh?'), 'w')
 
-    def test_fnrl_return_non_repeat_letter_if_word_have_uppercase_symbols(self):
+    def test_fn_return_non_repeat_letter_if_word_have_uppercase_symbols(self):
         """test: chould returns 'w' for inputs 'hello world, eh?' """
         self.assertEqual(first_non_repeating_latter('sTreSS'), 'T')

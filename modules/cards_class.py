@@ -20,7 +20,8 @@ class Card:
 
     def __repr__(self):
         return '{rank:2d}{suit}'.format(
-            rank = self.rank, suit = self.suit
+            rank=self.rank,
+            suit=self.suit
         )
 
 
@@ -29,7 +30,7 @@ class AceCard(Card):
     def __repr__(self):
         return 'A {suit}'.format(
             rank=self.rank,
-            suit = self.suit
+            suit=self.suit
         )
 
 
@@ -38,9 +39,9 @@ class FaceCard(Card):
     def __repr__(self):
         names = {11: 'J', 12: 'Q', 13: 'K'}
         return '{name}{suit}'.format(
-            rank = self.rank,
-            suit = self.suit,
-            name = names[self.rank]
+            rank=self.rank,
+            suit=self.suit,
+            name=names[self.rank]
         )
 
 
@@ -69,9 +70,12 @@ class CribaggeFaceCard(FaceCard, CribbageFacePoints):
 
 
 def make_card(rank, suit):
-    if rank == 1: return CribbageAce(rank, suit)
-    if 2 <= rank < 11: return CribbageCard(rank, suit)
-    if 11 <= rank : return CribaggeFaceCard(rank, suit)
+    if rank == 1:
+        return CribbageAce(rank, suit)
+    if 2 <= rank < 11:
+        return CribbageCard(rank, suit)
+    if 11 <= rank:
+        return CribaggeFaceCard(rank, suit)
 
 
 # class Player:
