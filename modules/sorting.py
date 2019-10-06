@@ -9,6 +9,7 @@ def findSmallest(arr):
             smallest_index = i
     return smallest_index
 
+
 def selectionSort(arr):
     """Sort by selection"""
     newArr = []
